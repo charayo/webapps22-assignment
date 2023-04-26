@@ -60,8 +60,15 @@ module.exports = function (app, passport) {
   });
   ///blog page
   app.get("/blog", function (req, res) {
-    res.render("blogPage.ejs", {
-      post: req.post, //get the user out of session and pass to template
+    Post.find({}, function (err, posts) {
+      if (err) {
+        console.log(err);
+      } else {
+        res.render("blogPage.ejs", {
+          posts: posts,
+        });
+        console.log(posts);
+      }
     });
   });
 

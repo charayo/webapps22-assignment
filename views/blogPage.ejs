@@ -23,12 +23,14 @@
 
 		<!-- LOCAL INFORMATION -->
 		<div class="col-sm-6">
-			<div class="well">
-
-					<p>
-						For post
-					</p>
-
+			<div>
+				<% posts.forEach(function(post) { %>
+					<li>
+					  <h2><%= post.title %></h2>
+					  <p><%= post.content %></p>
+					  <p><%= post.user_id %></p>
+					</li>
+				  <% }); %>
 			</div>
 		</div>
 
